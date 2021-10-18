@@ -7,4 +7,5 @@ class Student(models.Model):
     codigo = models.CharField(max_length=50) 
     telefono = models.CharField(max_length=50) 
     carrera = models.CharField(max_length=50) 
+    deporte = models.CharField(max_length=50) 
     email = models.EmailField()

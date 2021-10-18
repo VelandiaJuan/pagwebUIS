@@ -5,12 +5,162 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ListadoDeporteUIS</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900&display=swamp');
+
+      *{
+          font-family: 'Heebo', sans-serif;
+      }
+
+      body{	
+        font-family: georgia, times, serif;
+        color:  #333;
+        font-size: 1.2rem ;
+        line-height: 1.4em;
+        margin: 0;
+        background-repeat: no-repeat ;
+        background-attachment: fixed ;
+
+      }
+
+      h1{
+        font-size: 2rem;
+        line-height: 1.3em;
+
+      }
+
+      p{
+        margin-bottom: 1.6em;
+      }
+
+      .container{
+        width: 85%;
+        max-width: 850px;
+        margin: 0 auto;
+      }
+
+      .header{
+        background: rgb(7, 7, 7);  
+        color: white;
+        padding:  2rem 0;
+
+        
+        left: 0;
+        top: 0;
+        right: 0;
+      }
+
+      .header a{
+        color: white;
+        text-decoration: none;
+      }
+
+      .logo-nav-container {
+        display: flex;
+        justify-content:  space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .logo{
+        letter-spacing: 15px;
+        font-size: 1.3em;
+      }
+
+      .menu-icon{
+        display:none ;
+      }
+
+      .navigation ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .navigation ul li{
+        display:  inline-block;
+      }
+
+      .navigation ul li a{
+        display: block;
+        padding: 0.5rem 1rem;
+        transition: all 0.4s linear;
+        border-radius: 5px;
+      }
+
+      .navigation ul li a:hover {
+        background: #4a4a4a;
+      }
+
+      .footer{
+        background: "f2f2f2";
+        padding: 4rem 0 ;
+        text-align: center;
+        margin-top: 6rem;
+      } 
+
+      .main {
+        padding-top: 20rem;
+      }
+
+      @media only screen and (max-width: 767px){
+
+      .menu-icon{
+        display: block;
+        cursor: pointer;
+      }
+
+      .navigation {
+        width: 100% ;
+      }
+
+      .navigation ul {
+        display: none;
+      }
+
+      .navigation ul.show {
+        display: block;
+      }
+
+      .navigation ul li{
+        display:  block;
+        margin: 1rem;
+      }
+
+      .navigation ul li a{
+        display: block;
+        padding: 0.5rem 0;
+        transition: all 0.4s linear;
+        border-radius: 5px;
+      }
+
+      .navigation ul li a:hover {
+        background: #4a4a4a;
+      }
+      }
+
+      .main-title{
+          position: absolute;
+        left: 750px;
+          font-size: 40px;
+      }
+    </style>
 </head>
 <body>
-    <h1>Bienvenido A la Universidad UIS</h1>
+  <header class="header">
+    <div class="container logo-nav-container">
+        <a href="#" class="logo">UIS</a>
+        <span class="menu-icon">Ver menú</span>
+        <nav class="navigation">
+            <ul>
+                <li><a>El deporte es Salud</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
     <!-- atributo llamado desde la vista -->
     <a href="{% url 'admin:index' %}">Registrarse</a>
-    <h2>Clase: {{ clase }}</h2>
+    <h2>{{ clase }}</h2>
     <h2>Tabla</h2>
     <table border="1">
         <tr>
@@ -20,6 +170,7 @@
           <th>Telefono</th>
           <th>Carrera</th>
           <th>Email</th>
+          <th>Deporte</th>
         </tr>
         {% if estudiantes %}
         {% for estudiante in estudiantes %}
@@ -30,9 +181,11 @@
             <td>{{estudiante.telefono}}</td>
             <td>{{estudiante.carrera}}</td>
             <td>{{estudiante.email}}</td>
+            <td>{{estudiante.deporte}}</td>
         </tr>
         {% endfor %}
         {% endif %}
-      </table> 
+      </table>
+      <img src="https://images.pexels.com/photos/159684/soccer-football-soccer-player-sport-159684.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"> 
 </body>
 </html>

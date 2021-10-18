@@ -4,7 +4,7 @@ from .models import Student
 
 def index(request):
     estudiantes = Student.objects.all()
-    context = {'clase': 'Aprendiendo Django','estudiantes':estudiantes}
+    context = {'clase': 'UIS se ejercita','estudiantes':estudiantes}
     return render(request,'student_list.html',context) 
 
 
